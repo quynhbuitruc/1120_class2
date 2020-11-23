@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Con rắn</title>
+</head>
+<body>
+    <script>
+        let game = {
+      snake: {
+        cells: [
+          {
+            x: 0, // let cell.x = 0
+            y: 0, // let cell.y = 0
+            moveDown: function () {
+              this.x += 1
+            },
+            moveRight: function () {
+              this.y += 1
+            }
+          },
+          {
+            x: 0, // let cell.x = 0
+            y: 1, // let cell.y = 0
+            moveDown: function () {
+              this.x += 1
+            },
+            moveRight: function () {
+              this.y += 1
+            }
+          }
+        ],
+        moveRight: function () {
+          for (let i = 0; i < this.cells.length - 1; i++) {
+            this.cells[i].x = this.cells[i + 1].x
+            this.cells[i].y = this.cells[i + 1].y
+          }
+          this.cells[this.cells.length - 1].moveRight()
+        },
+        moveDown: function() {
+          for (let i = 0; i < this.cells.length - 1; i++) {
+            this.cells[i].x = this.cells[i + 1].x
+            this.cells[i].y = this.cells[i + 1].y
+          }
+          this.cells[this.cells.length - 1].moveDown()
+        }
+      },
+      veLai: function () {
+        document.getElementById("battleFiled").innerHTML = ""
+        for (let i = 0; i < this.snake.cells.length; i++) {
+          let view =
+            `<div id="cell" style="float: left;
+          width: 14px;
+          height: 14px;
+          background-image: url('images/cell.png');
+          background-size: 100% 100%;
+          position: absolute;
+          top: ${this.snake.cells[i].x * 14}px;
+          left: ${this.snake.cells[i].y * 14}px;"></div>`
+          document.getElementById("battleFiled").innerHTML += view
+        }
+      }
+    }
+    game.veLai()
+    </script>
+</body>
+</html>
