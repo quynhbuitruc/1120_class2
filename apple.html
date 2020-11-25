@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apples</title>
+</head>
+
+<body>
+    <script>
+        let Apple = function () {
+            this.appleWeight = 10
+            this.getEaten = function () {
+                if (this.weight > 0) {
+                    return this.weight--
+                }
+            }
+            this.getWeight = function () {
+                return this.weight
+            }
+        }
+
+        let Human = function (name, gender, weight) {
+            this.name = name
+            this.gender = gender
+            this.weight = weight
+            this.speakSomething = function (message) {
+                console.log (message)
+            }
+            this.setAppleWeight = function (appleWeight) {
+                this.appleWeight = appleWeight
+            }
+            this.getAppleWeight = function () {
+                return this.appleWeight
+            }
+            this.eatApple = function () {
+                if (this.appleWeight > 0) {
+                    this.weight ++
+                    this.appleWeight --
+                }
+            }
+            this.getName = function () {
+                return this.name
+            }
+            this.getWeight = function () {
+                return this.weight 
+            }
+            this.getGender = function () {
+                return this.gender
+            }
+        }
+    </script>
+</body>
+
+</html>
